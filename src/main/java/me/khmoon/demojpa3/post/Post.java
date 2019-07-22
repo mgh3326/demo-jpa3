@@ -1,4 +1,4 @@
-package me.khmoon.demojpa3;
+package me.khmoon.demojpa3.post;
 
 import javax.persistence.*;
 import java.util.Date;

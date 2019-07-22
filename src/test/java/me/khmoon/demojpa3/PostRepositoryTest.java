@@ -1,16 +1,15 @@
 package me.khmoon.demojpa3;
 
+import me.khmoon.demojpa3.post.PostRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.jdbc.DataJdbcTest;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.*;
-
 @RunWith(SpringRunner.class)
-@DataJdbcTest
+@DataJpaTest
 public class PostRepositoryTest {
 
   @Autowired
