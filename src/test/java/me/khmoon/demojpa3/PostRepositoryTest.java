@@ -1,5 +1,6 @@
 package me.khmoon.demojpa3;
 
+import me.khmoon.demojpa3.post.Post;
 import me.khmoon.demojpa3.post.PostRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,6 +18,13 @@ public class PostRepositoryTest {
 
   @Test
   public void crud() {
+    Post post = new Post();
+    post.setTitle("hipernate");
+    postRepository.save(post);
+    postRepository.findMyPost();
+
+    postRepository.delete(post);
+    postRepository.flush();
 
   }
 }
