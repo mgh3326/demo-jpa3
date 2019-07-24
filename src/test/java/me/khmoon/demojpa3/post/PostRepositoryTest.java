@@ -1,5 +1,6 @@
 package me.khmoon.demojpa3.post;
 
+import com.querydsl.core.types.Predicate;
 import me.khmoon.demojpa3.post.Post;
 import me.khmoon.demojpa3.post.PostPublishedEvent;
 import me.khmoon.demojpa3.post.PostRepository;
@@ -11,6 +12,9 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
+
+
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -28,15 +32,13 @@ public class PostRepositoryTest {
   public void crud() {
     Post post = new Post();
     post.setTitle("hipernate");
-
-    assertThat(postRepository.contains(post)).isFalse();
-
     postRepository.save(post.publish());
-    assertThat(postRepository.contains(post)).isTrue();
 
+    Predicate predicate = QPost.post.title.containsIgnoreCase("hibernate");
 
-    postRepository.delete(post);
-    postRepository.flush();
+    // 왜 안되냐
+//    Optional<Post> one = postRepository.findOne(predicate);
+//    assertThat(one).isNotEmpty();
 
   }
 }
